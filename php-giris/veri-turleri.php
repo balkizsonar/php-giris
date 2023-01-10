@@ -27,5 +27,6 @@ $object = new stdClass;
 $null = NULL;
 
 echo gettype($object);
+echo gettype($null);
 
 ?>
