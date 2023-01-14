@@ -1,4 +1,3 @@
-
 <form action="gonder.php" method="post" enctype="multipart/form-data">
 
 
@@ -13,13 +12,13 @@
     button
 -->
     Ad: <br>
-    <input type="text" readonly value="tayfun erbilen" name="ad">
+    <input type="text"  value="tayfun erbilen" name="ad">
     <hr>
     Hakkımda: <br>
     <textarea  name="hakkimda" cols="50" placeholder ="hakkında bir şeyler yaz.." rows="5"></textarea>
     <hr>
     Meslek: <br>
-    <select name="meslek">
+    <select name="meslek_select">
         <option>--seç--</option>
         <option value="web-developer">Web Developer</option>
         <option value="front-end-developer">Front-end Developer</option>
