@@ -1,4 +1,5 @@
 <form action="gonder.php" method="post" enctype="multipart/form-data">
+    !!gonder.php adresine gönderilsin, post methoduyla gönderilsin diyoruz burada
 
 
 <!--
