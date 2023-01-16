@@ -1,7 +1,7 @@
 <form action="gonder.php" method="post" enctype="multipart/form-data">
-    !!gonder.php adresine gönderilsin, post methoduyla gönderilsin diyoruz burada
+    <!--gonder.php adresine gönderilsin, post methoduyla gönderilsin diyoruz burada
 
-
+-->
 <!--
     input
     textarea
@@ -13,7 +13,7 @@
     button
 -->
     Ad: <br>
-    <input type="text"  value="tayfun erbilen" name="ad">
+    <input type="text"   value="tayfun erbilen" name="ad">
     <hr>
     Hakkımda: <br>
     <textarea  name="hakkimda" cols="50" placeholder ="hakkında bir şeyler yaz.." rows="5"></textarea>
