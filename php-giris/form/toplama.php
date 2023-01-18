@@ -20,12 +20,14 @@
  * */
 
     if(isset($_POST) && isset($_POST["hesapla"])){
-        //echo "<pre>";print_r($_POST);echo "</pre>";exit;
+        //echo "<pre>";print_r($_POST);echo "</pre>";exit; //echo ile posttan değerler geliyor mu kontrol ediyoruz.
+
         //kullanıcıdan gelen verileri değişkenlerimize aktarıyoruz
         $sayi1 = (int)$_POST["sayi1"]; //posttan gelen sayi1 değerini $sayi1 değişkenine atadık.
         $sayi2 = (int)$_POST["sayi2"];//i
         $islem = (int)$_POST["islem"];
-        //şimdi gelen verilere bakıyoruz doğru mu
+
+        //şimdi gelen verilere bakıyoruz doğru mu çalışıyor mu
         //echo "sayı 1: ".$sayi1." sayı 2:".$sayi2." işlem :".$islem;
 
         if(empty($sayi1)){
@@ -89,6 +91,7 @@
         <button type="submit" name="hesapla">HESAPLA</button>
     </div>
 </form>
+
 
 </body>
 </html>
