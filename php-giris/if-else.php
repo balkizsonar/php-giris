@@ -3,7 +3,7 @@
 
 $a = 1;
 /*
-if ($a == 4){
+if ($a == 4){ //true ise çalışır if
       echo "a değişkeninin değeri 4'tir.";
 }
 
