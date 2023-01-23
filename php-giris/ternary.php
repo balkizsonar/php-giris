@@ -1,4 +1,4 @@
-<?php
+ <?php
 
 $a = 5;
 
@@ -36,6 +36,8 @@ echo "yöntem 1 :ben bir ".($cinsiyet == 1 ? "kız":"erkek")." bireyim<br>";
 
 //switch case
 echo "<br>";
+
+
 echo "Yöntem 2";
 echo "<br>";
 switch($cinsiyet){
@@ -50,9 +52,13 @@ switch($cinsiyet){
         break;
 }
 echo "<br>";
+echo "<br>";
 echo "yontem 3";
 echo "<br>";
-echo "ben bir ".$cinstiyetArray[$cinsiyet]." biryim<br>";
+
+echo "ben bir ".$cinstiyetArray[$cinsiyet]." biryim<br>";//burada $cinsiyet değişkenini biz başta 1 olarak tanımlamıştık
+ //o yüzden $cinsiyetArray dizisindeki cinsiyet değişkenini alıyoruz ve bu da yukarıda  1 => "Balkız", a eşit
+ //olduğundan sonuç "ben bir Balkız biryim" olarak karşımıza çıkar.
 echo "ben bir ".$cinstiyetArray[$cinsiyet]." biryim<br>";
 echo "ben bir ".$cinstiyetArray[$cinsiyet]." biryim<br>";
 echo "ben bir ".$cinstiyetArray[$cinsiyet]." biryim<br>";
