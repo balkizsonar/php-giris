@@ -13,13 +13,14 @@ $hobilerArray = [ //foreach için hobileri $hobilerArray değişkenine attık
   3 => "Resim yapmak",
   4 => "Müzik dinlemek"
 ];
+
 if(isset($_POST) && isset($_POST["gonder"])){ //
 
     //echo "<pre>";print_r($_POST);echo "</pre>";
 
 
     //burada değişkene atıyoruz Posttan gelen değerleri böylelikle daha kolay uşacağız kod israfı olmayacak
-    $ad = $_POST["ad"] ?? null;
+    $ad = $_POST["ad"]  ?? null;
     $soyisim = $_POST["soyisim"] ?? null;
     $cinsiyet = $_POST["cinsiyet"] ?? null;
     $email = $_POST["email"] ?? null;
@@ -40,7 +41,8 @@ if(isset($_POST) && isset($_POST["gonder"])){ //
 */
 
 
-    echo $cinsiyet;
+
+echo $cinsiyet;
     if(empty($ad)){     //ad değişkeni boşsa "lütfen adınızı yazınız" yazdır demek
         echo "Lütfen adınızı yazınız.";
     }elseif (empty($soyisim)){ // if çalışmazsa o koşulu atlar 2. koşul gireriz
@@ -56,11 +58,11 @@ if(isset($_POST) && isset($_POST["gonder"])){ //
     }else{   /// en son diğer koşullar yerine gelmiyorsa else yazarız
         echo 'Merhaba' . $ad . $soyisim .'<br>' . 'Cinsiyetiniz' . $cinsiyet .'<br>'. 'e-postanız'. $email .'<br>'. 'telefonunuz' . $telefon ;//Merhaba Ozan Ssonar cinsiyetiniz:e erkek epostanız: test@com telefonunuz:312312
         echo "<br>hobiler:";
-        foreach ($hobiler as $hobi){ //foreach ile $hobilerArray değişkenine atadığımız
-            //değişkeni yazdırıyoruz.
-            echo $hobilerArray[$hobi].", ";
+        foreach ($hobiler as $hobi){ //foreach ile $hobilerArray değişkenine atadığımız değişkeni yazdırıyoruz.
+            echo $hobilerArray[$hobi]."";
         }
     }
+
 }
 /*
 $cekirdekAile = ["ozan","balkız","defne","veli"];
@@ -118,8 +120,7 @@ echo ile "var yazsın diye ayarlıyoruz."
             <hr>
             <div>
                 Telefon No:
-                <input type="tel" placeholder="Telefon No Giriniz" name="telefon"
-                       value="<?php echo $_POST["telefon"] ?? null; ?>">
+                <input type="tel" placeholder="Telefon No Giriniz" name="telefon" value="<?php echo $_POST["telefon"] ?? null; ?>">
 
             </div>
             </div>
