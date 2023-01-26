@@ -41,3 +41,7 @@
  * 66-84 arası iyi
  * 85-100 arası pekiyi yazsın
  */
+
+
+
+

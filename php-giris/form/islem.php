@@ -79,7 +79,6 @@ $islem = (int)$_POST["islem"];
     <div>
     <button type="submit" name="hesapla" >HESAP</button>
     </div>
-
 </form>
 </body>
 </html>

@@ -42,7 +42,7 @@ if(isset($_POST) && isset($_POST["gonder"])){ //
 
 
 
-echo $cinsiyet;
+//echo $cinsiyet;
     if(empty($ad)){     //ad değişkeni boşsa "lütfen adınızı yazınız" yazdır demek
         echo "Lütfen adınızı yazınız.";
     }elseif (empty($soyisim)){ // if çalışmazsa o koşulu atlar 2. koşul gireriz

@@ -1,8 +1,9 @@
 <?php
-print_r ($_POST);
+//print_r ($_POST);
 if(isset($_POST) && isset($_POST["hesapla"])) {
 //echo "<pre>";print_r($_POST);echo "</pre>";exit;
 //kullanıcıdan gelen verileri değişkenlerimize aktarıyoruz
+
     $not1 = (int)$_POST["not1"]; //posttan gelen sayi1 değerini $sayi1 değişkenine atadık.
     $not2 = (int)$_POST["not2"];
     $not3 = (int)$_POST["not3"];
@@ -38,7 +39,7 @@ if(isset($_POST) && isset($_POST["hesapla"])) {
 
 <form action="" method="post">
     <div>
-        <label for="not 1">not 1</label>
+        <label for="not1">not 1</label>
         <input type="number" name="not1" >
     </div>
 
