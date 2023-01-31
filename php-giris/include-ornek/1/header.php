@@ -10,5 +10,7 @@
 <body>
 <?php
 $test = 'test';
+$test2 = 'test';
+
 
 ?>
