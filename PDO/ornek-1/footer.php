@@ -1,0 +1,20 @@
+<?php
+/**
+ * Author: Ozan SONAR
+ * Mail : ozansonar1@gmail.com
+ * User: User
+ * Date: 15.02.2023
+ * Time: 12:42
+ */
+?>
+<ul class="list-group">
+    <li class="list-group-item active" aria-current="true">An active item</li>
+    <li class="list-group-item">A second item</li>
+    <li class="list-group-item">A third item</li>
+    <li class="list-group-item">A fourth item</li>
+    <li class="list-group-item">And a fifth one</li>
+</ul>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+</body>
+</html>

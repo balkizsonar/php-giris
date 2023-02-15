@@ -17,4 +17,9 @@ $_SESSION['uye'] = [ // uye içindeki kullanıcı adını dizi olarak oluşturdu
 //setcookie('uye[sifre]', 123, time() + 86400)
 
 print_r($_COOKIE);
+
+
+
+
+
 ?>
