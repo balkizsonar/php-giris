@@ -6,10 +6,11 @@ error_reporting(E_ALL);
 
 
 try{
-$db = new PDO('mysql:host=localhost;dbname=dersler', 'root',''); //+db database in kısaltması PDO ise bir sınıf
+$db = new PDO('mysql:host=localhost;dbname=WEB_dersler', 'root',''); //+db database in kısaltması PDO ise bir sınıf
 //mysql veri tabanınmıza bağlanmak istiyoruz burda
 }catch (PDOException $e){
    echo $e->getMessage();
+   exit;
 }
 
 /*

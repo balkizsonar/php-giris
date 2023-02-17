@@ -33,7 +33,7 @@ if(isset($_POST['submit'])){
         ]);
 
         if ($ekle){
-            header('Location:index.php');
+            header('Location:kullanici-listesi.php');
         }else{
             echo 'MySQL Hatası'. $sorgu->errorInfo();
         }
