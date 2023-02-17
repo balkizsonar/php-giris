@@ -24,7 +24,6 @@
         <option value="web-developer">Web Developer</option>
         <option value="front-end-developer">Front-end Developer</option>
         <option selected value="back-end-developer">Back-end Developer</option>
-
     </select>
     <hr>
     Cinsiyet: <br>
@@ -36,7 +35,6 @@
             <input type="radio" name="cinsiyet" value="kadın">
             kadın
         </label>
-
     <hr>
     İlgi Alanları: <br>
     <label>

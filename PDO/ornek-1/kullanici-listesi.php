@@ -1,5 +1,7 @@
 <?php
 require_once "baglan.php";
+require_once "ortak-degiskenler.php";
+
 //select*from TABLO_ADİ
 //query
 //prepare-execute//ekrana yazdırmak için kullnılan bir diğer yöntem
@@ -28,6 +30,7 @@ require_once "heeader.php";
             <th scope="col">Soyad</th>
             <th scope="col">Email</th>
             <th scope="col">Telefon</th>
+            <th scope="col">İl</th>
             <th scope="col">İşlem</th>
         </tr>
         </thead>
@@ -39,12 +42,13 @@ require_once "heeader.php";
                 <th><?php echo $kullanici['soyad']; ?></th>
                 <th><?php echo $kullanici['email']; ?></th>
                 <th><?php echo $kullanici['telefon_no']; ?></th>
+                <th><?php echo $ilArray[$kullanici['il']]; ?></th>
                 <td>
                     <a href="kullanici-duzenle.php?id=<?php echo $kullanici["id"]; ?>" class="btn btn-primary">Düzenle</a>
                     <a href="kullanici-sil.php?id=<?php echo $kullanici["id"]; ?>" class="btn btn-danger">Sil</a>
                 </td>
             </tr> 
-        <?php endforeach; ?> 
+        <?php endforeach; ?>
         </tbody>
     </table>
 </div>

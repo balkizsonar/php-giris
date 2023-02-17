@@ -1,5 +1,6 @@
 <?php
 require_once "baglan.php";
+require_once "ortak-degiskenler.php";
 require_once "heeader.php";
 
 ?>

@@ -1,6 +1,13 @@
 <?php
 require_once "baglan.php";
+require_once "ortak-degiskenler.php";
 require_once "heeader.php";
+
+
+
+
+
+
 if(!isset($_GET["id"])){
     header("Location: index.php");
 }
@@ -20,6 +27,8 @@ if(isset($_POST['submit'])){
     $soyad = $_POST['soyad'] ?? null;
     $email = $_POST['email'] ?? null;
     $telefon_no = $_POST['telefon_no'] ?? null;
+    $il = $_POST['il'] ?? null;
+
 
 
     if (empty($ad)){
@@ -30,12 +39,16 @@ if(isset($_POST['submit'])){
         echo'email giriniz';
     }elseif (empty($telefon_no)){
         echo 'telefon no giriniz';
-    }else{
+    }elseif (empty($il)){
+        echo 'il seçiniz';
+    }
+    else{
         $sorgu = $db->prepare('UPDATE kullanicilar SET
          ad = ?,
          soyad = ?,
          email = ?,
-         telefon_no = ?
+         telefon_no = ?,
+         il = ?           
          WHERE id=?
          '
         );
@@ -44,6 +57,7 @@ if(isset($_POST['submit'])){
             $soyad,
             $email,
             $telefon_no,
+            $il,
             $id
         ]);
 
@@ -79,6 +93,15 @@ if(isset($_POST['submit'])){
             <label for="exampleFormControlInput1" class="form-label">TELEFON NO:</label>
             <input type="tel" name="telefon_no" class="form-control" id="exampleFormControlInput1" placeholder="TELEFON NO" value="<?php echo $veriSonuc["telefon_no"] ?? null; ?>">
         </div>
+        <div class="mb-3">
+            <select class="form-select" name="il" id="il"  aria-label="Default select example">
+                <option value="">İL</option>
+                <?php foreach ($ilArray as $ilKey=>$ilValue):?>
+                    <option value="<?php echo $ilKey; ?>" <?php echo $veriSonuc["il"] == $ilKey ? "selected" : null ?>><?php echo $ilValue ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+
         <div class="mb-3">
             <button type="submit" name="submit" value="1" class="btn btn-info">Gönder</button>
         </div>
