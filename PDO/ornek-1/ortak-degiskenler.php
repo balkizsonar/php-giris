@@ -12,3 +12,16 @@ $ilArray = [
     3=>"İSTANBUL",
     1=>"BURSA"
 ];
+
+$sporArray = [
+    1=>"FUTBOL",
+    2=>"TENİS",
+    3=>"BASKETBOL",
+    4=>"VOLEYBOL"
+];
+$cinsiyetArray = [
+    1=>"KADIN",
+    2=>"ERKEK",
+    3=>"Trans"
+];
+

@@ -9,7 +9,7 @@ require_once "heeader.php";
 
 
 if(!isset($_GET["id"])){
-    header("Location: index.php");
+    header("Location: index.php");//header yönlendirme demek
 }
 $id = intval($_GET["id"]);
 $veriGetir = $db->prepare("SELECT * FROM kullanicilar WHERE id=?");
@@ -19,7 +19,7 @@ $veriGetir->execute([
 if($veriGetir->rowCount() !== 1){
     header("Location: kullanici-listesi.php");
 }
-$veriSonuc = $veriGetir->fetch(PDO::FETCH_ASSOC);
+$veriSonuc = $veriGetir->fetch(PDO::FETCH_ASSOC);//$veriSonuc değişkeninine $veriGetir deki değerleri atıyoruz.
 
 if(isset($_POST['submit'])){
 
@@ -28,6 +28,7 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'] ?? null;
     $telefon_no = $_POST['telefon_no'] ?? null;
     $il = $_POST['il'] ?? null;
+    $spor = $_POST['spor'] ?? null;
 
 
 
@@ -41,14 +42,16 @@ if(isset($_POST['submit'])){
         echo 'telefon no giriniz';
     }elseif (empty($il)){
         echo 'il seçiniz';
-    }
-    else{
+    }elseif (empty($spor)){
+        echo 'spor seçiniz';
+    }else{
         $sorgu = $db->prepare('UPDATE kullanicilar SET
          ad = ?,
          soyad = ?,
          email = ?,
          telefon_no = ?,
-         il = ?           
+         il = ?,
+         spor = ?
          WHERE id=?
          '
         );
@@ -58,6 +61,7 @@ if(isset($_POST['submit'])){
             $email,
             $telefon_no,
             $il,
+            $spor,
             $id
         ]);
 
@@ -101,7 +105,24 @@ if(isset($_POST['submit'])){
                 <?php endforeach; ?>
             </select>
         </div>
-
+        <div class="mb-3">
+            <select class="form-select" name="spor" id="spor"  aria-label="Default select example">
+                <option value="">SPOR</option>
+                <?php foreach ($sporArray as $sporKey=>$sporValue):?>
+                    <option value="<?php echo $sporKey; ?>" <?php echo $veriSonuc["spor"] == $sporKey ? "selected" : null ?>><?php echo $sporValue ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <?php foreach ($cinsiyetArray as $cinsiyetKey=>$cinsiyetValue):?>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cinsiyet" value="<?php echo $cinsiyetKey ?>" id="id_cinsiyet_<?php echo $cinsiyetKey;?>" checked>
+                    <label class="form-check-label" for="id_cinsiyet_<?php echo $cinsiyetKey;?>">
+                        <?php echo $cinsiyetValue; ?>
+                    </label>
+                </div>
+            <?php endforeach; ?>
+        </div>
         <div class="mb-3">
             <button type="submit" name="submit" value="1" class="btn btn-info">Gönder</button>
         </div>

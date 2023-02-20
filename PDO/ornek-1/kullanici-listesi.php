@@ -28,9 +28,11 @@ require_once "heeader.php";
             <th scope="col">ID</th>
             <th scope="col">Ad</th>
             <th scope="col">Soyad</th>
+            <th scope="col">Cinsiyet</th>
             <th scope="col">Email</th>
             <th scope="col">Telefon</th>
             <th scope="col">İl</th>
+            <th scope="col">Spor</th>
             <th scope="col">İşlem</th>
         </tr>
         </thead>
@@ -40,9 +42,11 @@ require_once "heeader.php";
                 <th class="text-danger"><?php echo $kullanici['id']; ?></th>
                 <th><?php echo $kullanici['ad']; ?></th>
                 <th><?php echo $kullanici['soyad']; ?></th>
+                <th><?php echo $kullanici['cinsiyet']; ?></th>
                 <th><?php echo $kullanici['email']; ?></th>
                 <th><?php echo $kullanici['telefon_no']; ?></th>
                 <th><?php echo $ilArray[$kullanici['il']]; ?></th>
+                <th><?php echo $sporArray[$kullanici['spor']]; ?></th>
                 <td>
                     <a href="kullanici-duzenle.php?id=<?php echo $kullanici["id"]; ?>" class="btn btn-primary">Düzenle</a>
                     <a href="kullanici-sil.php?id=<?php echo $kullanici["id"]; ?>" class="btn btn-danger">Sil</a>

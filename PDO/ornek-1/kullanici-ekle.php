@@ -1,17 +1,19 @@
 <?php
 require_once "baglan.php";
-require_once "ortak-degiskenler.php";
+require_once "ortak-degiskenler.php";//ortak değişkenler sayfası dahil ediliyor çünkü burdaki verileri tüm sayfalarda kullanacağız.
 require_once "heeader.php";
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){//varlık kontrolü yapmalıyız buton var mı dedik
     $ad = $_POST['ad'] ?? null;
-    $soyad = $_POST['soyad'] ?? null;
+    $soyad = $_POST['soyad'] ?? null;//değer atamamızı yapıyoruz postun içinde soyad varsa değeri ver yoksa  null.
     $email = $_POST['email'] ?? null;
     $telefon_no = $_POST['telefon_no'] ?? null;
     $il = $_POST['il'] ?? null;
+    $spor = $_POST['spor'] ?? null;
+    $cinsiyet =$_POST['cinsiyet'] ?? null;
 
 
-    if (empty($ad)){
+    if (empty($ad)){ //boşluk kontrolümüzü yapıyoruz
         echo 'ad giriniz';
     }elseif (empty($soyad))
         echo 'soyad giriniz';
@@ -21,32 +23,42 @@ if(isset($_POST['submit'])){
         echo 'telefon no giriniz';
     elseif(empty($il)){
         echo 'il seçiniz';
-    }else{
-        $sorgu = $db->prepare('INSERT INTO kullanicilar SET
+    }elseif(empty($spor)){
+        echo 'spor seçiniz';
+    }elseif(empty($cinsiyet)){
+        echo 'cinsiyet seçiniz';
+    }else{   //Tüm bölümler doluysa şartlar yerine gelmişse else bloğuna düşer.
+        $sorgu = $db->prepare('INSERT INTO kullanicilar SET 
          ad = ?,
          soyad = ?,
+         cinsiyet = ?,
          email = ?,
          telefon_no = ?,
-         il = ?                '
-        );
-        $ekle = $sorgu->execute([
+         il = ?,
+         spor = ?'
+        );  // sorgu değişkenine db(database, veritabanından) veri ekliyorum burda soru işareti hangi verinin gelceği bilinmez
+
+
+        $ekle = $sorgu->execute([ // execute sorguyu ve kendini çalıştırır/ sorguyu kontrol edebilmek için ise ekle değişkenine atıp verileri yazarız
             $ad,
             $soyad,
+            $cinsiyet,
             $email,
             $telefon_no,
-            $il
-        ]);
+            $il,
+            $spor
+        ]);//$ad,$soyad vs veri tabanındaki verilerin değişken hali
 
-        if ($ekle){
-            header('Location:kullanici-listesi.php');
-        }else{
-            echo 'MySQL Hatası'. $sorgu->errorInfo();
+        if ($ekle){// ekle çalışıyorsa
+            header('Location:kullanici-listesi.php');// yönlendir
+        }else{// değilse
+            echo 'MySQL Hatası'. $sorgu->errorInfo();//sorgu değişkeni error versn
         }
 
     }
 }
 ?>
-<div class="container">
+<div class="container"> <?php // ?>
     <div class="alert alert-info" role="alert">
         Kullanıcı Ekle
     </div>
@@ -74,6 +86,24 @@ if(isset($_POST['submit'])){
                     <option value="<?php echo $ilKey; ?>"><?php echo $ilValue ?></option>
                 <?php endforeach; ?>
             </select>
+        </div>
+        <div class="mb-3">
+            <select class="form-select" name="spor" id="spor" aria-label="Default select example">
+                <option value="">SPOR</option>
+                <?php foreach ($sporArray as $sporKey=>$sporValue):?>
+                    <option value="<?php echo $sporKey; ?>"><?php echo $sporValue ?></option>
+                <?php endforeach; ?>
+            </select>
+        </div>
+        <div class="mb-3">
+            <?php foreach ($cinsiyetArray as $cinsiyetKey=>$cinsiyetValue):?>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="cinsiyet" value="<?php echo $cinsiyetKey ?>" id="id_cinsiyet_<?php echo $cinsiyetKey;?>" checked>
+                    <label class="form-check-label" for="id_cinsiyet_<?php echo $cinsiyetKey;?>">
+                        <?php echo $cinsiyetValue; ?>
+                    </label>
+                </div>
+            <?php endforeach; ?>
         </div>
         <div class="mb-3">
             <button type="submit" name="submit" value="1" class="btn btn-info">Gönder</button>
