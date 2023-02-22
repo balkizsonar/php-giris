@@ -4,10 +4,6 @@ require_once "ortak-degiskenler.php";
 require_once "heeader.php";
 
 
-
-
-
-
 if(!isset($_GET["id"])){
     header("Location: index.php");//header yönlendirme demek
 }
@@ -25,10 +21,15 @@ if(isset($_POST['submit'])){
 
     $ad = $_POST['ad'] ?? null;
     $soyad = $_POST['soyad'] ?? null;
+    $cinsiyet = $_POST['cinsiyet'] ?? null;
     $email = $_POST['email'] ?? null;
     $telefon_no = $_POST['telefon_no'] ?? null;
     $il = $_POST['il'] ?? null;
     $spor = $_POST['spor'] ?? null;
+    $hobi_resim_yapma = isset($_POST['hobi_resim_yapma']) ? 1:null;
+    $hobi_kitap_okuma = isset($_POST['hobi_kitap_okuma']) ? 1:null;
+    $hobi_muzik_dinleme = isset($_POST['hobi_muzik_dinleme']) ? 1:null;
+    $hobi_yuruyus_yapma = isset($_POST['hobi_yuruyus_yapma']) ? 1:null;
 
 
 
@@ -36,6 +37,8 @@ if(isset($_POST['submit'])){
         echo 'ad giriniz';
     }elseif (empty($soyad)){
         echo 'soyad giriniz';
+    }elseif (empty($cinsiyet)){
+        echo 'cinsiyet giriniz';
     }elseif (empty($email)){
         echo'email giriniz';
     }elseif (empty($telefon_no)){
@@ -48,20 +51,30 @@ if(isset($_POST['submit'])){
         $sorgu = $db->prepare('UPDATE kullanicilar SET
          ad = ?,
          soyad = ?,
+         cinsiyet = ?,
          email = ?,
          telefon_no = ?,
          il = ?,
-         spor = ?
+         spor = ?,
+         hobi_resim_yapma = ?,
+         hobi_kitap_okuma  = ?,
+         hobi_muzik_dinleme = ?,                
+         hobi_yuruyus_yapma = ? 
          WHERE id=?
          '
         );
         $ekle = $sorgu->execute([
             $ad,
             $soyad,
+            $cinsiyet,
             $email,
             $telefon_no,
             $il,
             $spor,
+            $hobi_resim_yapma,
+            $hobi_kitap_okuma,
+            $hobi_muzik_dinleme,
+            $hobi_yuruyus_yapma,
             $id
         ]);
 
@@ -116,12 +129,23 @@ if(isset($_POST['submit'])){
         <div class="mb-3">
             <?php foreach ($cinsiyetArray as $cinsiyetKey=>$cinsiyetValue):?>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="cinsiyet" value="<?php echo $cinsiyetKey ?>" id="id_cinsiyet_<?php echo $cinsiyetKey;?>" checked>
+                    <input class="form-check-input" type="radio" name="cinsiyet" value="<?php echo $cinsiyetKey ?>" id="id_cinsiyet_<?php echo $cinsiyetKey;?>">
                     <label class="form-check-label" for="id_cinsiyet_<?php echo $cinsiyetKey;?>">
                         <?php echo $cinsiyetValue; ?>
                     </label>
                 </div>
             <?php endforeach; ?>
+        </div>
+        <div class="mb-3">
+            <div class="alert alert-info" role="alert">
+                HOBİLER
+            </div>
+            <?php foreach ($hobiArray as $hobiKey=>$hobiValue): ?>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="hobi_<?php echo $hobiKey; ?>"  id="id_hobi_<?php echo $hobiKey;?>" value="<?php echo $hobiKey;?>">
+                    <label class="form-check-label" for="id_hobi_<?php echo $hobiKey;?>"><?php echo $hobiValue; ?></label>
+                </div>
+            <?php endforeach;?>
         </div>
         <div class="mb-3">
             <button type="submit" name="submit" value="1" class="btn btn-info">Gönder</button>

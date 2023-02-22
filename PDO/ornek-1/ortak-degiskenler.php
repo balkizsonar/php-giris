@@ -25,3 +25,9 @@ $cinsiyetArray = [
     3=>"Trans"
 ];
 
+$hobiArray = [
+    "resim_yapma"=>"RESİM YAPMAK",
+    "kitap_okuma"=>"KİTAP OKUMAK",
+    "muzik_dinleme"=>"MÜZİK DİNLEMEK",
+    "yuruyus_yapma"=>"YÜRÜYÜŞ YAPMAK"
+];

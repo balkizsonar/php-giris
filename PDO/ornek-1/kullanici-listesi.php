@@ -31,9 +31,15 @@ require_once "heeader.php";
             <th scope="col">Cinsiyet</th>
             <th scope="col">Email</th>
             <th scope="col">Telefon</th>
-            <th scope="col">İl</th>
             <th scope="col">Spor</th>
+            <th scope="col">İl</th>
+            <th scope="col">Resim yapma</th>
+            <th scope="col">Kitap okuma</th>
+            <th scope="col"Müzik dinleme</th>
+            <th scope="col">Yürüyüş yapma</th>
             <th scope="col">İşlem</th>
+
+
         </tr>
         </thead>
         <tbody>
@@ -45,8 +51,12 @@ require_once "heeader.php";
                 <th><?php echo $kullanici['cinsiyet']; ?></th>
                 <th><?php echo $kullanici['email']; ?></th>
                 <th><?php echo $kullanici['telefon_no']; ?></th>
+                <th><?php echo $kullanici['spor']; ?></th>
                 <th><?php echo $ilArray[$kullanici['il']]; ?></th>
-                <th><?php echo $sporArray[$kullanici['spor']]; ?></th>
+                <th><?php echo $hobiArray[$kullanici['hobi_resim_yapma']]; ?></th>
+                <th><?php echo $hobiArray[$kullanici['hobi_kitap_okuma']]; ?></th>
+                <th><?php echo $hobiArray[$kullanici['hobi_muzik_dinleme']]; ?></th>
+                <th><?php echo $hobiArray[$kullanici['hobi_yuruyus_yapma']]; ?></th>
                 <td>
                     <a href="kullanici-duzenle.php?id=<?php echo $kullanici["id"]; ?>" class="btn btn-primary">Düzenle</a>
                     <a href="kullanici-sil.php?id=<?php echo $kullanici["id"]; ?>" class="btn btn-danger">Sil</a>

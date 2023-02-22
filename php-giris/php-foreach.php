@@ -5,9 +5,10 @@ foreach (ARRAY as KEY => VALUE){
 }
 */
 
-$sayilar = [1,2,3,4,5,6,7,8,9,10  ];
+$sayilar = [1,2,3,4,5,6,7,8,9,10];
 
-foreach($sayilar as $sayi){ //dizideki tüm eleman sayısı kadar veri verir
+foreach($sayilar as $sayi){ //$sayilar (sayılar dizim)dizimi foreach içinde $sayi değişkeni olarak kullan her döngü döndüğünde
+    //her elemanı bu  $sayi olarak tanımla ve kullan
     echo $sayi . '<br>';
 }
 
