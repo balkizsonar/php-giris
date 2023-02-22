@@ -16,8 +16,9 @@ if($veriGetir->rowCount() !== 1){
     header("Location: kullanici-listesi.php");
 }
 $veriSonuc = $veriGetir->fetch(PDO::FETCH_ASSOC);//$veriSonuc değişkeninine $veriGetir deki değerleri atıyoruz.
-
+//echo "<pre>";print_r($veriSonuc);echo "</pre>";
 if(isset($_POST['submit'])){
+
 
     $ad = $_POST['ad'] ?? null;
     $soyad = $_POST['soyad'] ?? null;
@@ -127,9 +128,10 @@ if(isset($_POST['submit'])){
             </select>
         </div>
         <div class="mb-3">
+            <label for="">Cinsiyet</label>
             <?php foreach ($cinsiyetArray as $cinsiyetKey=>$cinsiyetValue):?>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="cinsiyet" value="<?php echo $cinsiyetKey ?>" id="id_cinsiyet_<?php echo $cinsiyetKey;?>">
+                    <input class="form-check-input" type="radio" name="cinsiyet" value="<?php echo $cinsiyetKey ?>" <?php echo $veriSonuc["cinsiyet"] == $cinsiyetKey ? "checked" : null;?> id="id_cinsiyet_<?php echo $cinsiyetKey;?>">
                     <label class="form-check-label" for="id_cinsiyet_<?php echo $cinsiyetKey;?>">
                         <?php echo $cinsiyetValue; ?>
                     </label>
@@ -142,8 +144,10 @@ if(isset($_POST['submit'])){
             </div>
             <?php foreach ($hobiArray as $hobiKey=>$hobiValue): ?>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" name="hobi_<?php echo $hobiKey; ?>"  id="id_hobi_<?php echo $hobiKey;?>" value="<?php echo $hobiKey;?>">
-                    <label class="form-check-label" for="id_hobi_<?php echo $hobiKey;?>"><?php echo $hobiValue; ?></label>
+                    <input class="form-check-input" type="checkbox" name="hobi_<?php echo $hobiKey; ?>" value="<?php echo $hobiKey;?>" <?php echo $veriSonuc["hobi_".$hobiKey] == 1 ? "checked" : null ?> id="id_hobi_<?php echo $hobiKey;?>" >
+                    <label class="form-check-label" for="id_hobi_<?php echo $hobiKey;?>">
+                        <?php echo $hobiValue; ?>
+                    </label>
                 </div>
             <?php endforeach;?>
         </div>
