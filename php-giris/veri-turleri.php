@@ -19,12 +19,12 @@ Veri Türleri (Data Types)
 $string = "tayfun erbilen";
 
 
-$int = 500;
-$float = 5.5;
-$bool = true;
-$array = array();
-$object = new stdClass;
-$null = NULL;
+$int = 500;// sayı
+$float = 5.5;// buçuklu ya ad noktalı sayı
+$bool = true;// true false içerir
+$array = array();// dizi depolar [] köşelitırnak ta kullanılır
+$object = new stdClass; // nesne veri türü
+$null = NULL; //eğişken var ama değeri olmadığında null kullanırız
 
 echo gettype($object);
 echo gettype($null);
