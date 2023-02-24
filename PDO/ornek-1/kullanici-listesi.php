@@ -58,8 +58,8 @@ require_once "heeader.php";
                 <th><?php echo !empty($kullanici['hobi_muzik_dinleme']) ? $hobiArray["muzik_dinleme"]:null; ?></th>
                 <th><?php echo !empty($kullanici['hobi_yuruyus_yapma']) ? $hobiArray["yuruyus_yapma"]:null; ?></th>
                 <td>
-                    <a href="kullanici-duzenle.php?id=<?php echo $kullanici["id"]; ?>" class="btn btn-primary">Düzenle</a>
-                    <a href="kullanici-sil.php?id=<?php echo $kullanici["id"]; ?>" class="btn btn-danger">Sil</a>
+                    <a href="kullanici-duzenle.php? id=<?php echo $kullanici["id"]; ?>" class="btn btn-primary">Düzenle</a>
+                    <a href="kullanici-sil.php? id=<?php echo $kullanici["id"]; ?>" class="btn btn-danger">Sil</a>
                 </td>
             </tr> 
         <?php endforeach; ?>

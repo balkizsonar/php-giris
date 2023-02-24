@@ -19,6 +19,7 @@ $sporArray = [
     3=>"BASKETBOL",
     4=>"VOLEYBOL"
 ];
+
 $cinsiyetArray = [
     1=>"KADIN",
     2=>"ERKEK",
@@ -31,3 +32,4 @@ $hobiArray = [
     "muzik_dinleme"=>"MÜZİK DİNLEMEK",
     "yuruyus_yapma"=>"YÜRÜYÜŞ YAPMAK"
 ];
+

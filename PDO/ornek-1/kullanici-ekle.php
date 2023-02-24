@@ -3,6 +3,8 @@ require_once "baglan.php";
 require_once "ortak-degiskenler.php";//ortak değişkenler sayfası dahil ediliyor çünkü burdaki verileri tüm sayfalarda kullanacağız.
 require_once "heeader.php";
 
+
+
 if(isset($_POST['submit'])){//varlık kontrolü yapmalıyız buton var mı dedik
     //echo "<pre>";print_r($_POST);echo "</pre>";
     $ad = $_POST['ad'] ?? null;
@@ -106,7 +108,7 @@ if(isset($_POST['submit'])){//varlık kontrolü yapmalıyız buton var mı dedik
             <select class="form-select" name="spor" id="spor" aria-label="Default select example">
                 <option value="">SPOR</option>
                 <?php foreach ($sporArray as $sporKey=>$sporValue):?>
-                    <option value="<?php echo $sporKey; ?>"<?php echo $veriSonuc["spor"] == $sporKey ? "selected" : null ?>><?php echo $sporValue ?></option>
+                    <option value="<?php echo $sporKey; ?>"><?php echo $sporValue ?></option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -116,7 +118,7 @@ if(isset($_POST['submit'])){//varlık kontrolü yapmalıyız buton var mı dedik
             </div>
             <?php foreach ($cinsiyetArray as $cinsiyetKey=>$cinsiyetValue):?>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="cinsiyet" value="<?php echo $cinsiyetKey ?>" <?php $veriSonuc["cinsiyet"] == $cinsiyetKey ? "selected" : null;?>> id="id_cinsiyet_<?php echo $cinsiyetKey;?>">
+                    <input class="form-check-input" type="radio" name="cinsiyet" value="<?php echo $cinsiyetKey ?>" id="id_cinsiyet_<?php echo $cinsiyetKey;?>">
                     <label class="form-check-label" for="id_cinsiyet_<?php echo $cinsiyetKey;?>">
                         <?php echo $cinsiyetValue; ?>
                     </label>
@@ -130,7 +132,7 @@ if(isset($_POST['submit'])){//varlık kontrolü yapmalıyız buton var mı dedik
             </div>
             <?php foreach ($hobiArray as $hobiKey=>$hobiValue): ?>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" name="hobi_<?php echo $hobiKey; ?>" value="<?php echo $hobiKey;?>" <?php echo $veriSonuc["hobi"] == $hobiKey ? "selected" : null ?> id="id_hobi_<?php echo $hobiKey;?>" >
+                <input class="form-check-input" type="checkbox" name="hobi_<?php echo $hobiKey; ?>" value="<?php echo $hobiKey;?>"  id="id_hobi_<?php echo $hobiKey;?>" >
                 <label class="form-check-label" for="id_hobi_<?php echo $hobiKey;?>">
                     <?php echo $hobiValue; ?>
                 </label>

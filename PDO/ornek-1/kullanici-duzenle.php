@@ -4,8 +4,8 @@ require_once "ortak-degiskenler.php";
 require_once "heeader.php";
 
 
-if(!isset($_GET["id"])){
-    header("Location: index.php");//header yönlendirme demek
+if(!isset($_GET["id"])){//yoksa $_Get te ıd
+    header("Location: index.php");// index.php ye yönlendir ! (header yönlendirme demek)
 }
 $id = intval($_GET["id"]);
 $veriGetir = $db->prepare("SELECT * FROM kullanicilar WHERE id=?");

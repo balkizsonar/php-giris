@@ -38,6 +38,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="kullanici-ekle.php">Kullanıcı Ekle</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="iletisim.php">İletişim</a>
+                </li>
 
             </ul>
             <form class="d-flex" role="search">
