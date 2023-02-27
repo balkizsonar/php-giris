@@ -2,6 +2,7 @@
 require_once "baglan.php";
 require_once "ortak-degiskenler.php";
 
+
 //select*from TABLO_ADİ
 //query
 //prepare-execute//ekrana yazdırmak için kullnılan bir diğer yöntem

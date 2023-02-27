@@ -41,6 +41,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="iletisim.php">İletişim</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="iletisim-listesi.php">İletişim Listesi</a>
+                </li>
+
 
             </ul>
             <form class="d-flex" role="search">

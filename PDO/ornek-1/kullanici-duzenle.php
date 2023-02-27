@@ -3,7 +3,6 @@ require_once "baglan.php";
 require_once "ortak-degiskenler.php";
 require_once "heeader.php";
 
-
 if(!isset($_GET["id"])){//yoksa $_Get te ıd
     header("Location: index.php");// index.php ye yönlendir ! (header yönlendirme demek)
 }

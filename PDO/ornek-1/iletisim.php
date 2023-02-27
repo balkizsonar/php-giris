@@ -33,11 +33,21 @@ if (isset($_POST['submit'])){
          telefon_no = ?,
           hakkimda = ?'
         );
+        $ekle = $sorgu->execute([
+                $ad,
+                $soyad,
+                $email,
+                $telefon_no,
+                $hakkimda
 
+        ]);
+
+        if ($ekle){
+            header('Location:iletisim-listesi.php');
+        }else{
+            echo 'MySQL Hatası'. $sorgu->errorInfo();
+        }
     }
-
-
-
 }
 ?>
 <div class="container">
